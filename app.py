@@ -1,8 +1,3 @@
-#/
-#    author:   coder-ashish
-#    created:  04.04.2023 21:23:38
-#/
-
 from pynput.keyboard import Key, Controller
 import time
 
@@ -14,28 +9,22 @@ def pressTab():
     keyboard.release(Key.tab)
     time.sleep(0.1)
 
-def pressDown():
-    keyboard.press(Key.down)
-    time.sleep(0.1)
-    keyboard.release(Key.down)
-    time.sleep(0.1)
+def selectOption(2):
+    for _ in range(2):
+        pressDown()
 
 def fill_feedback():
-    pressDown()
-    time.sleep(2)
-    pressDown()
-    pressDown()
-    pressDown()
-    pressDown()
-    pressDown()
-    pressDown()
-    pressDown()
-    pressDown()
-    pressDown()
+    # Select "excellent"
+    selectOption(option=4)
+
+    # Move to the next field
     pressTab()
 
-print("Get ready, and point your cursor at the first index position...")
+# Print a message to indicate when the script is about to start
+print("Get ready and point your cursor at the first index position...")
 time.sleep(3)
 
-while(True):
+# Infinite loop to keep filling the form
+while True:
     fill_feedback()
+    # Add any additional logic if needed (e.g., break the loop after a certain number of iterations)
